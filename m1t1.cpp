@@ -1,7 +1,7 @@
 /*
 This is a comment in C++.
 Alyssa Y., 8/25/25
- 
+
 m1t1 - hello, user.
 INPUT: Run the program.
 PROCESS: None yet.
@@ -15,8 +15,10 @@ using namespace std;
 
 int main() {
     // SFX: Greet user
-    cout << "Hello, user!" <<endl;
+    // Strings hold words
+    string first_name = "Aly";
 
+    cout << "Hello, " << first_name << "! How are you today?" << endl;
     // Output
     return 0; // No errors
 }
