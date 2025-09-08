@@ -12,22 +12,34 @@ using namespace std;
 int main() {
     // Set up the variables
     double  length, width, height; // Size of crate
+    double volume;
     double cost_to_make, charge_to_customer;
     double profit;
 
     const double COST_PER_CUBIC_FOOT = 0.23;
     const double CHARGE_PER_CUBIC_FOOT = 0.5;
     // Get the crate info
-
-
+    cout << "Hello! Welcome to the crate program. Please input the following information below." << endl;
+    cout << endl;
+    cout << "Crate Length: ";
+    cin >> length;
+    cout << "Crate Width: ";
+    cin >> width;
+    cout << "Crate Height: ";
+    cin >> height;
 
     // Calculate the cost and prices
-
-
+    volume = length * width * height;
+    cost_to_make = volume * COST_PER_CUBIC_FOOT;
+    charge_to_customer = volume * CHARGE_PER_CUBIC_FOOT;
+    profit = charge_to_customer - cost_to_make;
 
     // Display the results
-
-
+    cout << endl;
+    cout << "Your crate is " << volume << " cubic feet." << endl;
+    cout << "Customer Price: $" << charge_to_customer << endl;
+    cout << "Cost to Build: $" << cost_to_make << endl;
+    cout << "Profit: $" << profit << endl; 
 
     return 0;
 }
