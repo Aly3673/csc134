@@ -2,7 +2,7 @@
 CSC 134, M3LAB1
 Alyssa Y.
 10/1/25
-The Robbery Game Program.
+The Robbery Game.
 */
 
 #include <iostream>
@@ -72,6 +72,7 @@ void hallway() {
 }
 
 void livingroom() {
+    cout << endl;
     cout << "You don't find a safe, but your eyes come across a fairly-nice TV." << endl;
     cout << "Take the TV? (Yes or No)" << endl;
     cout << endl;
@@ -106,10 +107,10 @@ void diningroom() {
 }
 
 void kitchen() {
+    cout << endl;
     cout << "You didn't find the safe here, but your stomach growls and you decide to raid the fridge." << endl;
     cout << "You open the fridge door and see what's inside. What do you get?" << endl;
     cout << endl;
-
     cout << "1 - Apple" << endl;
     cout << "2 - Ham sandwich" << endl;
     cout << "3 - Pizza slice" << endl;
@@ -168,26 +169,39 @@ void kitchen() {
 
 void bedroom() {
     cout << endl;
-}
-
-void basement() {
-    cout << "You don't see a safe, but you come across two doors. Which door do you choose to enter into?" << endl;
+    cout << "You don't see the safe. However, there are a few items that catch your interest." << endl;
+    cout << "Would be a good idea to not go empty-handed. What do you choose to take home with you?" << endl;
     cout << endl;
-    cout << "1 - Door One" << endl;
-    cout << "2 - Door Two" << endl;
+    cout << "1 - Gold Watch" << endl;
+    cout << "2 - Diamond Ring" << endl;
+    cout << "3 - Mobile Phone" << endl;
     cout << endl;
 
-    int choice2;
-    cin >> choice2;
+    int choice4;
+    cin >> choice4;
 
-    if (choice2 == 1) {
+    if (choice4 == 1) {
         cout << endl;
-        cout << "You found the safe! You pick up the safe and hurry back home." << endl;
-        cout << "Congratulations! You got $500,000!" << endl;
+        cout << "You decide to take the gold watch." << endl;
+        cout << "You can feel the riches in your palm as you scram out of the house." << endl;
+        cout << "After some searching, you find out the watch is only worth $50." << endl;
+        cout << "You decide to keep it to remind yourself of how bad of a criminal you are." << endl;
+        gameOver();
     }
-    else if (choice2 == 2) {
+    else if (choice4 == 2) {
         cout << endl;
-        cout << "After lots of searching in the room, you don't find the safe here. You hear the owners enter the house." << endl;
+        cout << "You decide to take the diamond ring." << endl;
+        cout << "You can feel the riches in your palm as you scram out of the house." << endl;
+        cout << "After some searching, you find out the ring is worth $3,000." << endl;
+        cout << "At least something is better than nothing." << endl;
+        gameOver();
+    }
+    else if (choice4 == 3) {
+        cout << endl;
+        cout << "You decide to take the mobile phone." << endl;
+        cout << "You might be able to get something out of this phone." << endl;
+        cout << "Unfortunately, you forgot what year you're in and didn't realise phones can have trackers in them." << endl;
+        cout << "The police were able to find and arrest you a few days later." << endl;
         gameOver();
     }
     else {
@@ -196,6 +210,36 @@ void basement() {
         gameOver();
     }
 
+}
+
+void basement() {
+    cout << endl;
+    cout << "You don't see a safe, but you come across two doors. Which door do you choose to enter into?" << endl;
+    cout << endl;
+    cout << "1 - Door One" << endl;
+    cout << "2 - Door Two" << endl;
+    cout << endl;
+
+    int choice3;
+    cin >> choice3;
+
+    if (choice3 == 1) {
+        cout << endl;
+        cout << "You decide to go through door one." << endl;
+        cout << "You found the safe! You pick up the somewhat heavy safe and hurry back home." << endl;
+        cout << "Congratulations, you got $500,000!" << endl;
+    }
+    else if (choice3 == 2) {
+        cout << endl;
+        cout << "You decide to go through door two." << endl;
+        cout << "After lots of searching in the room, you don't find the safe here. You hear the owners enter the house." << endl;
+        gameOver();
+    }
+    else {
+        cout << endl;
+        cout << "You took too long and the owners came back home. You were caught and arrested." << endl;
+        gameOver();
+    }
 }
 
 void gameOver() {
