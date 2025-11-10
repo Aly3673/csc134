@@ -18,9 +18,9 @@ using namespace std;
 int main() {
     cout << "M3HW1: Gold, Questions 1-4" << endl;
     cout << endl;
-    // questionOne();
-    // questionTwo();
-    // questionThree();
+    questionOne();
+    questionTwo();
+    questionThree();
     questionFour();
 
     return 0;
@@ -29,12 +29,22 @@ int main() {
 void questionOne() {
     cout << "Question 1 - Chat Bot" << endl;
     cout << endl;
-    cout << "Hello! Question, do you like waffles better or pancakes?" << endl;
+    
+    // Putting in the question.
+    cout << "Hello! Question, do you prefer waffles or pancakes more? Please enter 'waffles' or 'pancakes'." << endl;
     string waffles_pancakes;
     cin >> waffles_pancakes;
 
-
-    
+    // If-else statements.
+    if (waffles_pancakes == "waffles") {
+        cout << "Awesome! I love waffles too!" << endl;
+    }
+    else if (waffles_pancakes == "pancakes") {
+        cout << "That's cool! I like pancakes, but I prefer waffles." << endl;
+    }
+    else {
+        cout << "That is not one of the options, are you paying attention?" << endl;
+    }
 }
 
 void questionTwo() {
@@ -99,8 +109,72 @@ void questionTwo() {
 void questionThree() {
     cout << endl;
     cout << "Question 3 - Cat Fight" << endl;
+    cout << endl;
 
+    // Setting up the premises.
+    cout << "You are your average street cat." << endl;
+    cout << "After many days of roaming the streets of the city you reside in, you come across a half-eaten fish near a bin in an alley way. ";
+    cout << "However, you also notice the eyes of another cat looking over at that same fish. ";
+    cout << "After you both look back and forth at each other and the fish, you already know what you must do.";
+    cout << endl;
 
+    // Fight begins.
+    cout << "CAT FIGHT!" << endl;
+    cout << endl;
+    cout << "Available actions: Scratch or Bite" << endl;
+    cout << "What do you do first? Type in your action: ";
+    string user_cat;
+    cin >> user_cat;
+    
+    // First if-else statement.
+    if (user_cat == "scratch") {
+        cout << endl;
+        cout << "You decide to scratch your opponent." << endl;
+        cout << "You scratch the other cat on one of their eyes, catching them off guard for a moment." << endl;
+        cout << endl;
+        cout << "Available actions: Scratch or Bite" << endl;
+        cout << "What do you do this time? Type in your action: ";
+        string user_cat2;
+        cin >> user_cat2;
+
+        // Second if-else statement.
+        if (user_cat2 == "scratch") {
+            cout << endl;
+            cout << "You decide to scratch your opponent again." << endl;
+            cout << "Unforunately, your opponent has learned and delivers a powerful bite to your neck." << endl;
+            cout << "You manage to get them off, but you are in critical condition." << endl;
+            cout << "You decide to run away to avoid getting injured even more." << endl;
+            cout << "GAME OVER" << endl;
+        }
+        else if (user_cat2 == "bite") {
+            cout << endl;
+            cout << "You decide to bite your opponent this time." << endl;
+            cout << "You deliver a bite to your unprepared opponent's neck, putting them in critical condition." << endl;
+            cout << "Your opponent runs off into the distance, leaving you with the fish." << endl;
+            cout << "Feeling victorious, you munch down on the fish." << endl;
+            cout << "CONGRATULATIONS, YOU WIN!" << endl;
+        }
+        else {
+            cout << endl;
+            cout << "You were stuck, unable to make a decision. You decide to run away from the fight." << endl;
+            cout << "Maybe you'll come across another fish." << endl;
+            cout << "GAME OVER" << endl;
+        }
+    }
+    else if (user_cat == "bite") {
+        cout << endl;
+        cout << "You decide to bite your opponent." << endl;
+        cout << "Before you're able to bite them, your opponent strikes you in your eyes." << endl;
+        cout << "You've been blinded by their scratch." << endl;
+        cout << "You are no longer able to fight." << endl;
+        cout << "GAME OVER" << endl;
+    }
+    else {
+        cout << endl;
+        cout << "You were stuck, unable to make a decision. You decide to run away from the fight." << endl;
+        cout << "Maybe you'll come across another fish." << endl;
+        cout << "GAME OVER" << endl;
+    }
 }
 
 void questionFour() {
