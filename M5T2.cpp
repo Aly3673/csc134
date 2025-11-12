@@ -2,7 +2,7 @@
 CSC 134, M5T2
 Alyssa Y.
 11/12/25
-
+Squared Program with Functions.
 */
 
 #include <iostream>
@@ -16,9 +16,8 @@ void printResult(int number, int result) {
 // Given a number, return the square of it.
 int square(int number) {
     int result;
-    
+    result = number * number; // Squared.
     return result;
-
 }
 
 int main() {
