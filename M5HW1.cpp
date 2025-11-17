@@ -54,6 +54,7 @@ int main() {
                 break;
             }
             case 6: {
+                cout << "Goodbye!" << endl;
                 return 0;
             }
             default: {
@@ -103,18 +104,203 @@ void questionOne() {
 }
 
 void questionTwo() {
+    // THIS QUESTION DOES NOT HAVE INPUT VALIDATION.
     cout << "============ BLOCK VOLUME ===========" << endl;
     cout << endl;
 
+    // Framework, input, and variables.
+    cout << "Welcome to the Block Volume Calculator!" << endl;
     
+    double width;
+    double length;
+    double height;
+    double volume;
+
+    cout << "Please enter the width: ";
+    cin >> width;
+    cout << "Please enter the length: ";
+    cin >> length;
+    cout << "Please enter the height: ";
+    cin >> height;
+    cout << endl;
+
+    // Calculations.
+    volume = width * length * height;
+    cout << "The volume of the block is " << volume << "." << endl;
 }
 
 void questionThree() {
-    cout << "Test 3." << endl;
+    cout << "============ ROMAN NUMERAL ==========" << endl;
+    cout << endl;
+
+    // Framework, input, and variable.
+    cout << "Please enter a number from 1 to 10: ";
+    int regularNumber = 0; 
+
+    // Switch and validation.
+    while (regularNumber <= 0 || regularNumber > 10) {
+        cin >> regularNumber;
+        
+        switch (regularNumber) {
+            case 1: {
+                cout << "The Roman numeral of " << regularNumber << " is I." << endl;
+                break;
+            }
+            case 2: {
+                cout << "The Roman numeral of " << regularNumber << " is II." << endl;
+                break;
+            }
+            case 3: {
+                cout << "The Roman numeral of " << regularNumber << " is III." << endl;
+                break;
+            }
+            case 4: {
+                cout << "The Roman numeral of " << regularNumber << " is IV." << endl;
+                break;
+            }
+            case 5: {
+                cout << "The Roman numeral of " << regularNumber << " is V." << endl;
+                break;
+            }
+            case 6: {
+                cout << "The Roman numeral of " << regularNumber << " is VI." << endl;
+                break;
+            }
+            case 7: {
+                cout << "The Roman numeral of " << regularNumber << " is VII." << endl;
+                break;
+            }
+            case 8: {
+                cout << "The Roman numeral of " << regularNumber << " is VIII." << endl;
+                break;
+            }
+            case 9: {
+                cout << "The Roman numeral of " << regularNumber << " is IX." << endl;
+                break;
+            }
+            case 10: {
+                cout << "The Roman numeral of " << regularNumber << " is X." << endl;
+                break;
+            }
+            default: {
+                cin.clear();
+                cout << "Invalid input. Please enter a number from 1 to 10: ";
+            }
+        }
+    }
 }
 
 void questionFour() {
-    cout << "Test 4." << endl;
+    cout << "========= GEOMETRY CALCULATOR =======" << endl;
+    cout << endl;
+
+    // Menu. 
+    cout << "Geometry Calculator" << endl;
+    cout << "------------------------------------" << endl;
+    cout << "1. Calculate the Area of a Circle" << endl;
+    cout << "2. Calculate the Area of a Rectangle" << endl;
+    cout << "3. Calculate the Area of a Triangle" << endl;
+    cout << "4. Quit" << endl;
+    cout << endl;
+    cout << "Please enter an option from 1 to 4: ";
+    
+    int geometryMain = 0;
+    while (geometryMain <= 0 || geometryMain > 4) {
+        cin >> geometryMain;
+
+        switch (geometryMain) {
+            case 1: {
+                cout << endl;
+                cout << "Area of a Circle" << endl;
+                cout << "------------------------------------" << endl;
+                cout << "Please enter the radius of the circle: ";
+                double radius;
+                cin >> radius;
+
+                while (radius < 0) {
+                    cin.clear();
+                    cout << "The radius cannot be less than zero. Please input a valid radius: ";
+                    cin >> radius;
+                }
+
+                // Calculations for circle area.
+                double circleArea;
+                circleArea = 3.14159 * radius;
+                cout << "The area of the circle is " << circleArea << "." << endl;
+                break;
+            }
+            case 2: {
+                cout << "Area of a Rectangle" << endl;
+                cout << "------------------------------------" << endl;  
+                cout << "Please enter the length: ";
+
+                double rectangleLength;
+                double rectangleWidth;
+
+                cin >> rectangleLength;
+                
+                while (rectangleLength < 0) {
+                    cin.clear();
+                    cout << "Negative values are invalid. Please enter a valid length: ";
+                    cin >> rectangleLength;
+                }
+                
+                cout << "Please enter the width: ";
+                cin >> rectangleWidth;
+
+                while (rectangleWidth < 0) {
+                    cin.clear();
+                    cout << "Negative values are invalid. Please enter a valid width: ";
+                    cin >> rectangleWidth;
+                }
+
+                // Calculations for area of rectangle.
+                double rectangleArea;
+                rectangleArea = rectangleLength * rectangleWidth;
+                cout << "The area of the rectangle is " << rectangleArea << "." << endl;
+                break;
+            }
+            case 3: {
+                cout << "Area of a Triangle" << endl;
+                cout << "------------------------------------" << endl;
+                cout << "Please enter the base: ";
+
+                double triangleBase;
+                double triangleHeight;
+
+                cin >> triangleBase;
+
+                while (triangleBase < 0) {
+                    cin.clear();
+                    cout << "Negative values are invalid. Please enter a valid base: ";
+                    cin >> triangleBase;
+                }
+
+                cout << "Please enter the height: ";
+                cin >> triangleHeight;
+
+                while (triangleHeight < 0) {
+                    cin.clear();
+                    cout << "Negative values are invalid. Please enter a valid height: ";
+                    cin >> triangleHeight;
+                }
+
+                // Calculations.
+                double triangleArea;
+                triangleArea = triangleBase * triangleHeight * 0.5;
+                cout << "The area of the triangle is " << triangleArea << "." << endl;
+                break;
+            }
+            case 4: {
+                main();
+                break;
+            }
+            default: {
+                cin.clear();
+                cout << "Valid choices are 1 to 4. Please input a valid option: ";
+            }
+        }
+    } 
 }
 
 void questionFive() {
