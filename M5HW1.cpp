@@ -304,5 +304,36 @@ void questionFour() {
 }
 
 void questionFive() {
-    cout << "Test 5." << endl;
+    cout << "========= DISTANCE TRAVELED =========" << endl;
+    cout << endl;
+
+    // Variables, input, and input validation.
+    cout << "Please enter the speed of the vehicle: ";
+    int speed;
+    cin >> speed;
+    while (speed < 0) {
+        cin.clear();
+        cout << "Speed cannot be a negative number. Please enter the speed of the vehicle: ";
+        cin >> speed;
+    }
+    
+    cout << "How many hours has the vehicle traveled for? ";
+    int finalTime;
+    cin >> finalTime;
+    while (finalTime < 1) {
+        cin.clear();
+        cout << "Time cannot be less than 1 hour. How many hours has the vehicle traveled for? ";
+        cin >> finalTime;
+    }
+
+    cout << endl;
+    cout << "Hour\t" << "Distance Traveled" << endl;
+    cout << "-------------------------" << endl;
+
+    // Calculations, loop, and output.
+    for (int time = 1; time <= finalTime; time++) {
+        int distance;
+        distance = speed * time;
+        cout << " " << time << "\t\t" << distance << endl;
+    }
 }
