@@ -118,10 +118,27 @@ void questionTwo() {
 
     cout << "Please enter the width: ";
     cin >> width;
+    while (width <= 0) {
+        cin.clear();
+        cout << "You cannot input a value less than or equal to zero. Please enter the width: ";
+        cin >> width;
+    }
+
     cout << "Please enter the length: ";
     cin >> length;
+    while (length <= 0) {
+        cin.clear();
+        cout << "You cannot input a value less than or equal to zero. Please enter the length: ";
+        cin >> length;
+    }
+
     cout << "Please enter the height: ";
     cin >> height;
+    while (height <= 0) {
+        cin.clear();
+        cout << "You cannot input a value less than or equal to zero. Please enter the height: ";
+        cin >> height;
+    }
     cout << endl;
 
     // Calculations.
