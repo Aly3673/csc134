@@ -60,6 +60,10 @@ You come across: )" << endl; // R for raw print; Prints every line as is until i
 
 void choice_House() {
     cout << "Going into the house, you are greeted by three rooms. Which room do you hide in? " << endl;
+    int house_playerChoice;
+    cin >> house_playerChoice;
+
+    
 }
 
 void choice_Tombstone() {
