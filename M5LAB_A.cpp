@@ -1,3 +1,5 @@
+// Copy and pasting what I have so far from github 
+
 /*
 CSC 134, M5LAB_A
 Alyssa Y.
@@ -72,9 +74,77 @@ void exercise1_healthRegen() {
 }
 
 void exercise2_levelUpStats() {
-    cout << "Test 2." << endl;
+    cout << "======== EXERCISE 2: LEVEL UP STATS ========" << endl;
+
+    // All variables.
+    int strength;
+    int dexterity;
+    int intelligence;
+    int strengthLevel;
+    int dexterityLevel;
+    int intelligenceLevel;
+
+    // Framework.
+    for (strengthLevel = 1, dexterityLevel = 1, intelligenceLevel = 1; strengthLevel <= 20, dexterityLevel <= 30, intelligenceLevel <= 10; strengthLevel++, dexterityLevel++, intelligenceLevel++) {
+        // Formulas.
+        strength = 10 + (strengthLevel * 2);
+        dexterity = 8 + (dexterityLevel * 3);
+        intelligence = 12 + (intelligenceLevel * 1);
+
+        // Output.
+        cout << "___________________________________________" << endl;
+        cout << "Strength Stats:\t\t" << strength << "\tLevel:\t" << strengthLevel <<  endl;
+        cout << "Dexterity Stats:\t" << dexterity << "\tLevel:\t" << dexterityLevel << endl;
+        cout << "Intelligence Stats:\t" << intelligence << "\tLevel:\t" << intelligenceLevel << endl;
+        cout << "___________________________________________" << endl;
+    }
 }
 
 void exercise3_inventorySystem() {
-    cout << "Test 3." << endl;
-}
+    cout << "======= EXERCISE 3: INVENTORY SYSTEM =======" << endl;
+
+    int i;
+    int n;
+    string items[5] = {"Sword", "Money", "Torch", "Meat", "Shield"};
+
+    // Making displayed list
+    for (int i = 0, n = 1; i < 5, n <= 5; i++, n++) {
+        cout << n << ". " << items[i] << endl;
+        cout << endl;
+    }  
+
+    bool found = false;
+    cout << "Item Search: ";
+    string playerSelect;
+    cin >> playerSelect;
+
+    while (found == false) {
+        if (playerSelect == items[i]) {
+            found = true;
+            cout << "Found: " << playerSelect << " at slot " << n << endl;
+        }
+        cin.clear();
+        cout << "Not there" << endl;
+        cin >> playerSelect;
+    }
+    
+        // checking the list for the item
+        /* bool found = false; // did we find it?
+        cout << "Item Search: "; 
+        string playerSelect;
+        cin >> playerSelect;
+
+        if (playerSelect == items[i]) {
+                found = true; // Remarks found to true to show that we found the item.
+        }
+
+        while (found == false) {
+            cin.clear();
+            cout << "Item not found. Please try again: ";
+            cin >> playerSelect;
+                if (playerSelect == items[i]) {
+                    found = true;
+                } 
+        }   
+        cout << "Found: " << playerSelect << " at slot " << n << endl; */
+ }
