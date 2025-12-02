@@ -124,9 +124,9 @@ void shuffleSuperSoaker() {
 // DISPLAY FUNCTIONS
 
 void displayGameState() {
-    cout << "\n┌─────────────────────────────────────┐" << endl;
-    cout << "│  Player: " << playerScore << " points   Opponent: " << opponentScore << " points  │" << endl;
-    cout << "└─────────────────────────────────────┘" << endl;
+    cout << "\n┌───────────────────────────────────────┐" << endl;
+    cout << "│ Player: " << playerScore << " points   Opponent: " << opponentScore << " points │" << endl;
+    cout << "└───────────────────────────────────────┘" << endl;
 }
 
 void displaySuperSoaker(bool showContents) {
@@ -139,7 +139,7 @@ void displaySuperSoaker(bool showContents) {
         else slimeCount++;
     }
 
-    cout << "Super Soaker contants: ";
+    cout << "Super Soaker contents: ";
     cout << "🔵 " << waterCount << " water, ";
     cout << "🟢 " << slimeCount << " slime";
     cout << " (" << superSoaker.size() << " total)" << endl;
@@ -156,3 +156,121 @@ void displaySuperSoaker(bool showContents) {
 
 // CORE GAME MECHANICS
 
+char fireShot() {
+    // Fire the next cartridge (remove from front of vector)
+    // This is why we use a vector - easy to remove from front!
+
+    if (superSoaker.empty()) {
+        return 'E'; // Empty!
+    }
+
+    // pop_back() would remove the last one
+    // removing the first one takes 2 steps as follows
+    // Get the first cartridge
+    char cartridge = superSoaker.front();
+
+    // Remove it from the super soaker
+    superSoaker.erase(superSoaker.begin());
+
+    return cartridge;
+}
+
+// TURN LOGIC
+
+void playerTurn() {
+    displayGameState();
+    displaySuperSoaker(false);
+
+    cout << "\n>>> YOUR TURN <<<" << endl;
+    cout << "Fire at: [1] Yourself  [2] Opponent" << endl;
+    cout << "Choice: ";
+
+    int choice;
+    cin >> choice;
+
+    // Input validation
+    while (choice != 1 && choice != 2) {
+        cout << "Invalid choice. Enter 1 or 2";
+        cin >> choice;
+    }
+
+    cout << "\n💦 *SPLASH!* ";
+    char result = fireShot();
+
+    if (result == 'W') {
+        cout << "🔵 Water! " << endl;
+        if (choice == 1) {
+            cout << "You're wet but safe! You get another turn!" << endl;
+            // Player keeps their turn (currentPlayer stays "Player")
+        }
+        else {
+            cout << "Opponent is soaked but unharmed." << endl;
+            currentPlayer = "Opponent"; // Switch turns
+        }
+    }
+    else if (result == 'S') {
+        cout << "🟢 SLIME!" << endl;
+        if (choice == 1) {
+            cout << "You got slimed! -1 point!" << endl;
+            playerScore--;
+        }
+        else {
+            cout << "Opponent got slimed! -1 point!" << endl;
+            opponentScore--;
+        }
+        currentPlayer = "Opponent"; // Switch turns after slime
+    }
+}
+
+void opponentTurn() {
+    displayGameState();
+    displaySuperSoaker(false);
+
+    cout << "\n>>> OPPONENT'S TURN <<<" << endl;
+    cout << "Press Enter to see opponent's choice...";
+    cin.ignore();
+    cin.get();
+
+    // Simple AI: 50/50 chance to fire at self or player
+    int choice = 1 + rand() % 2;
+
+    if (choice == 1) {
+        cout << "Opponent fires at themselves!" << endl;
+    }
+    else {
+        cout << "Opponent fires at you!" << endl;
+    }
+
+    cout << "\n💦 *SPLASH!* ";
+    char result = fireShot();
+
+    if (result == 'W') {
+        cout << "🔵 Water!" << endl;
+        if (choice == 1) {
+            cout << "Opponent is wet but gets another turn!" << endl;
+            // Opponent keeps their turn
+        }
+        else {
+            cout << "You're soaked but unharmed." << endl;
+            currentPlayer = "Player"; // Switch turns
+        }
+    }
+    else if (result == 'S') {
+        cout << "🟢 SLIME!" << endl;
+        if (choice == 1) {
+            cout << "Opponent got slimed! -1 point!" << endl;
+            opponentScore--;
+        }
+        else {
+            cout << "You got slimed! -1 point!" << endl;
+            playerScore--;
+        }
+        currentPlayer = "Player"; // Switch turns after slime
+    }
+}
+
+void checkGameOver() {
+    if (playerScore <= 0 || opponentScore <= 0) {
+        gameOver = true;
+    }
+}
