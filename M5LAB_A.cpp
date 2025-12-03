@@ -108,7 +108,7 @@ void exercise3_inventorySystem() {
     string items[5] = {"Sword", "Money", "Torch", "Meat", "Shield"};
 
     // Making displayed list
-    for (int i = 0, n = 1; i < 5, n <= 5; i++, n++) {
+    for (int i = 0, n = 1; i < 5 && n <= 5; i++, n++) {
         cout << n << ". " << items[i] << endl;
         cout << endl;
     }  
@@ -118,15 +118,19 @@ void exercise3_inventorySystem() {
     string playerSelect;
     cin >> playerSelect;
 
-    while (found == false) {
-        if (playerSelect == items[i]) {
-            found = true;
-            cout << "Found: " << playerSelect << " at slot " << n << endl;
-        }
-        cin.clear();
-        cout << "Not there" << endl;
-        cin >> playerSelect;
+    if (playerSelect == items[i]) {
+        found = true;
     }
+
+    while (found == false) {
+        cin.clear();
+        cout << "Item not found. Please try again: ";
+        cin >> playerSelect;
+            if (playerSelect == items[i]) {
+                found = true;
+            }
+    }
+    cout << "Found: " << playerSelect << " at slot" << n << endl;
     
         // checking the list for the item
         /* bool found = false; // did we find it?
