@@ -133,29 +133,9 @@ void exercise3_inventorySystem() {
         // If not found, prompt again
         if (!found) {
             cin.clear(); // Clear error flags
-            cout << "Item not found. Please try again." << endl;
+            cout << "This item is not in your inventory. Please try again." << endl;
         }
     }
-    
-        // checking the list for the item
-        /* bool found = false; // did we find it?
-        cout << "Item Search: "; 
-        string playerSelect;
-        cin >> playerSelect;
-
-        if (playerSelect == items[i]) {
-                found = true; // Remarks found to true to show that we found the item.
-        }
-
-        while (found == false) {
-            cin.clear();
-            cout << "Item not found. Please try again: ";
-            cin >> playerSelect;
-                if (playerSelect == items[i]) {
-                    found = true;
-                } 
-        }   
-        cout << "Found: " << playerSelect << " at slot " << n << endl; */
  }
 
  /* ========= AI PROMPTS: GPT 4o-mini ========= 
