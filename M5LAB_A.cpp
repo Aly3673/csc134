@@ -114,23 +114,30 @@ void exercise3_inventorySystem() {
     }  
 
     bool found = false;
-    cout << "Item Search: ";
+    int position = -1; // No item found initially 
     string playerSelect;
-    cin >> playerSelect;
 
-    if (playerSelect == items[i]) {
-        found = true;
-    }
-
-    while (found == false) {
-        cin.clear();
-        cout << "Item not found. Please try again: ";
+    while (!found) {
+        cout << "Item Search: ";
         cin >> playerSelect;
+
+        // Search through the items
+        for (int i = 0; i < 5; i++) {
             if (playerSelect == items[i]) {
                 found = true;
+                position = 1; // Save the position
+                break; // Exit loop
             }
+        }
+
+        // If not found, prompt again
+        if (!found) {
+            cin.clear(); // Clear error flags
+            cout << "Item not found. Please try again." << endl;
+        }
     }
-    cout << "Found: " << playerSelect << " at slot" << n << endl;
+
+    cout << "Found: " << playerSelect << " at slot " << n << endl;
     
         // checking the list for the item
         /* bool found = false; // did we find it?
