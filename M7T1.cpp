@@ -6,6 +6,7 @@ Restaurant Rating Program.
 */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 // Declaring the class
@@ -13,39 +14,47 @@ class Restaurant { // Info about a restaurant
     public:
         void SetName(string restaurantName); // Sets the restaurant's name
 
-        void SetRating(int userRating); // Setings the rating (1-5, with 5 best)
+        void SetRating(double userRating); // Setings the rating (1-5, with 5 best)
 
         void Print(); // Prints name and rating on one line
     private:
         string name;
-        int rating;
+        double rating;
 };
 
 // Define the class functions
 void Restaurant::SetName(string restaurantName) {
     name = restaurantName;
-    // cout << "Set the name to " << restaurantName << endl;
 }
 
 // Sets the rating (1-5, with 5 best)
-void Restaurant::SetRating(int userRating) {
+void Restaurant::SetRating(double userRating) {
+    cout << setprecision(1) << fixed;
     rating = userRating;
 }
 
 // Print out a summary of the restaurant
 void Restaurant::Print() {
-    cout << name << " ---- " << rating << " stars" << endl;
+    cout << name << ": " << rating << "/5 stars" << endl;
 }
 
 // Now use the class
 int main() {
-    Restaurant faveRest;
-    faveRest.SetName("Mi Casita");
-    faveRest.SetRating(5);
-    faveRest.Print();
 
-    Restaurant backupRest;
-    backupRest.SetName("Tace Bell");
-    backupRest.SetRating(3);
-    backupRest.Print();
+    cout << "==== Best Restaurants ====" << endl;
+    Restaurant bestBreak;
+    bestBreak.SetName("Waffle House");
+    bestBreak.SetRating(4.0);
+    bestBreak.Print();
+
+    Restaurant bestLunch;
+    bestLunch.SetName("McDonald's");
+    bestLunch.SetRating(4.4);
+    bestLunch.Print();
+
+    Restaurant bestDinner;
+    bestDinner.SetName("Miyabi Jr.");
+    bestDinner.SetRating(4.3);
+    bestDinner.Print();
+    cout << "==========================" << endl;
 }
