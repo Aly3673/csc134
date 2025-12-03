@@ -157,3 +157,16 @@ void exercise3_inventorySystem() {
         }   
         cout << "Found: " << playerSelect << " at slot " << n << endl; */
  }
+
+ /* ========= AI PROMPTS: GPT 4o-mini ========= 
+ Prompt 1: Give me C++ code that fits these requirements:
+ 
+    Array with 5 equipment items (provided)
+    Display all items in numbered list
+    Ask user to search for an item
+    Loop through array to find it
+    Report if found and at what position
+
+Prompt 2: Can you tell me whats the problem with this code? [Copy and pastes all of exercise 3]
+
+Prompt 3: The slot items are found is not correct, can you make some changes so it knows exactly what slot an item is in? */
