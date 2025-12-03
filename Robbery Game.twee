@@ -1,0 +1,260 @@
+:: StoryTitle
+Robbery Game
+
+
+:: StoryData
+{
+  "ifid": "E33925C0-14CD-4B2B-A8E2-9296726CD916",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: // === AI ASSISTANCE DOCUMENTATION === {"position":"25,25","size":"100,100"}
+// LLM Used: GPT-4o mini created by OpenAI
+//
+// PROMPT 1:
+// Hi!
+// I have C++ code that I would like turned into a .twee format. Each decision point must become its own passage with
+// appropriate links.
+// Here is the code: [Copy and pasted C++ code]
+//
+// RESULT: The GPT bot proceeded to turn the C++ code into a .twee format; however, it stopped at :: DoorTwo.
+//
+// PROMPT 2:
+// Please include the rest of the code after :: DoorTwo
+//
+// RESULT: The GPT bot redid all of the twine code, but left out the game over section.
+//
+// PROMPT 3:
+// Please include the game over section
+//
+// RESULT: The GPT bot redid all of the twine code for a second time. All the code was converted to a .twine format.
+//
+// PROMPT 4: 
+// Hey, it says there is no starting point set for the story. Can you fix that?
+//
+// RESULT: The bot sent all the same code from prompt 3.
+//
+// PROMPT 5:
+// The lines for ":: Bedroom" is wrong, can you fix that?
+//
+// RESULT: The bot sent all the same code again, but the lines in the ":: Bedroom" section were not fixed.
+//
+// PROMPT 6:
+// No, still wrong. Just give me the section for the bedroom
+//
+// RESULT: The bot sent only the ":: Bedroom" section, but the lines still weren't fixed.
+//
+// PROMPT 7:
+// No, the lines are still wrong, please correct it
+//
+// RESULT: The bot sent only the ":: Bedroom" section, but the lines were correct this time.
+//
+// MANUAL FIXES:
+// - Manually put where the starting point is in the story:
+//      The code the bot sent was the same code as before. I figured the bot wouldn't be as much help, so I did it myself.
+// - Manually put in (copy and pasted) the new lines for the ":: Bedroom" section:
+//      I just didn't want to have to get the bot to write so much code again, much quicker to do it myself.
+// ================================
+
+
+:: Basement {"position":"775,150","size":"100,100"}
+You don't see a safe, but you come across two doors. Which door do you choose to enter into?  
+
+[[Door One|DoorOne]]  
+[[Door Two|DoorTwo]]
+
+---
+
+
+:: Bedroom {"position":"275,150","size":"100,100"}
+You don't see the safe. However, there are a few items that catch your interest.  
+It would be a good idea to not go empty-handed. What do you choose to take home with you?
+
+[[Gold Watch|TakeWatch]]  
+[[Diamond Ring|TakeRing]]  
+[[Mobile Phone|TakePhone]]
+
+---
+
+
+:: DiningRoom {"position":"700,25","size":"100,100"}
+You couldn't find anything of value in this room and left empty-handed.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: DoorOne {"position":"900,150","size":"100,100"}
+You decide to go through door one.  
+You found the safe! You pick up the somewhat heavy safe and hurry back home.  
+Congratulations, you got $500,000!  
+[[Game Over|GameOver]]
+
+---
+
+
+:: DoorTwo {"position":"1025,150","size":"100,100"}
+You decide to go through door two.  
+After lots of searching in the room, you don't find the safe here. You hear the owners enter the house.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: GameOver {"position":"1150,150","size":"100,100"}
+Game Over
+[[Reflection|Reflection]]
+
+
+:: GetApple {"position":"950,25","size":"100,100"}
+You decided to get the apple.  
+You enjoy the delicious, sweet piece of fruit.  
+You are satisfied and scram home.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: GetChocolate {"position":"150,150","size":"100,100"}
+You decided to get the box of chocolate milk.  
+Slipping on the chocolate milk makes you very happy.  
+You are satisfied and skip home.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: GetHam {"position":"1075,25","size":"100,100"}
+You decided to get the ham sandwich.  
+You take a bite into the sandwich, which you just now noticed is molding.  
+You die.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: GetPizza {"position":"1200,25","size":"100,100"}
+You decided to get the pizza slice.  
+You put the slice into the microwave.  
+Afterwards, you eat the slice.  
+You are satisfied and scram home.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: GetSardines {"position":"25,150","size":"100,100"}
+You decided to get the can of sardines.  
+Why anybody would like sardines? I don't know, but you chose it.  
+You eat the sardines.  
+You are satisfied and scram home.  
+Weirdo.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: Kitchen {"position":"825,25","size":"100,100"}
+You didn't find the safe here, but your stomach growls and you decide to raid the fridge.  
+You open the fridge door and see what's inside. What do you get?  
+
+[[Apple|GetApple]]  
+[[Ham Sandwich|GetHam]]  
+[[Pizza Slice|GetPizza]]  
+[[Can of Sardines|GetSardines]]  
+[[Chocolate Milk|GetChocolate]]
+
+---
+
+
+:: LivingRoom {"position":"325,25","size":"100,100"}
+You go into the Living Room.  
+You don't find a safe, but your eyes come across a fairly-nice TV.  
+Take the TV? (Yes or No)  
+
+[[Yes|TakeTV]]  
+[[No|NoTV]]
+
+---
+
+
+:: NoTV {"position":"575,25","size":"100,100"}
+You decide to not take the TV and just scram.  
+You left empty-handed.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: Reflection {"position":"25,275","size":"100,100"}
+=== REFLECTION ON PROMPT WRITING ===
+
+What made a good prompt?
+A good prompt is a prompt that is specific about the goal the user wants to achieve. The user will make sure to give the AI as much information as possible in order for the bot to understand what it is supposed to do.
+
+What made a bad prompt?
+A bad prompt is a prompt that is unclear. Users that give little to no useful information on what the user wants will have bad results from AI.
+
+What did I learn about working with AI assistants?
+I learned that AI assistants are helpful in speeding up tedious tasks. However, AI assistants are also prone to error if given big tasks and not much information.
+
+If I did this again, I would...
+I would break up what I want from the AI into sections (such as having the AI convert one section of my C++ code into Twine, then onto the next). I also, if something needs to be fixed, give more information I would need to the AI to ensure the results are right the first time (so for the ":: Bedroom" issue, I'd provide the lines to the bot).
+
+
+:: Start {"position":"200,25","size":"100,100"}
+You break into a house that you've been keeping an eye on for weeks now.  
+You heard that this house holds a safe with $500,000 in it.  
+You only have enough time to explore one room.  
+Which room do you choose to navigate into?  
+
+[[Living Room|LivingRoom]]  
+[[Dining Room|DiningRoom]]  
+[[Kitchen|Kitchen]]  
+[[Bedroom|Bedroom]]  
+[[Basement|Basement]]
+
+---
+
+
+:: TakePhone {"position":"650,150","size":"100,100"}
+You decide to take the mobile phone.  
+You might be able to get something out of this phone.  
+Unfortunately, you forgot what year you're in and didn't realize phones can have trackers in them.  
+The police were able to find and arrest you a few days later.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: TakeRing {"position":"525,150","size":"100,100"}
+You decide to take the diamond ring.  
+You can feel the riches in your palm as you scram out of the house.  
+After some searching, you find out the ring is worth $3,000.  
+At least something is better than nothing.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: TakeTV {"position":"450,25","size":"100,100"}
+You decide to take the TV and scram.  
+Once you got home, you decided to check the price of the TV online and realize it is only $250.  
+That was not worth it.  
+[[Game Over|GameOver]]
+
+---
+
+
+:: TakeWatch {"position":"400,150","size":"100,100"}
+You decide to take the gold watch.  
+You can feel the riches in your palm as you scram out of the house.  
+After some searching, you find out the watch is only worth $50.  
+You decide to keep it to remind yourself of how bad of a criminal you are.  
+[[Game Over|GameOver]]
+
+---
