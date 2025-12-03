@@ -125,7 +125,7 @@ void exercise3_inventorySystem() {
         for (int i = 0; i < 5; i++) {
             if (playerSelect == items[i]) {
                 found = true;
-                position = 1; // Save the position
+                cout << "Found: " << playerSelect << " at slot " << (i + 1) << endl;
                 break; // Exit loop
             }
         }
@@ -136,8 +136,6 @@ void exercise3_inventorySystem() {
             cout << "Item not found. Please try again." << endl;
         }
     }
-
-    cout << "Found: " << playerSelect << " at slot " << n << endl;
     
         // checking the list for the item
         /* bool found = false; // did we find it?
