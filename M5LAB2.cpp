@@ -66,8 +66,9 @@ double getArea(double length, double width) {
 }
 
 void displayData(double length, double width, double area) {
-    cout << "Info Displayed:" << endl;
-    cout << "Length: " << length << endl;
-    cout << "Width: " << width << endl;
-    cout << "Area: " << area << endl;
+    cout << "+---------------+" << endl;
+    cout << "| Length: " << length << "\t|" << endl;
+    cout << "| Width: " << width << "\t|" << endl;
+    cout << "| Area: " << area << "\t|" << endl;
+    cout << "+---------------+" << endl;
 }
