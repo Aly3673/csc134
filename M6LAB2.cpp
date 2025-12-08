@@ -27,31 +27,31 @@ const string DIRECTION_NAMES[NUM_DIRECTIONS] = {
 
 // Define constants for rooms
 enum Room {
-    ENTRANCE_HALL = 0,
-    LIBRARY = 1,
-    KITCHEN = 2,
-    GARDEN = 3,
-    BASEMENT = 4,
+    CUBICLES = 0,
+    CONFERENCE_ROOM = 1,
+    BREAK_ROOM = 2,
+    RESTROOM = 3,
+    IT_ROOM = 4,
     NUM_ROOMS = 5
 };
 
 int main () {
     // Room names array
     string roomNames[NUM_ROOMS] = {
-        "Entrance Hall",
-        "Library",
-        "Kitchen",
-        "Garden",
-        "Basement"
+        "Cubicles",
+        "Conference Room",
+        "Break Room",
+        "Restroom",
+        "IT Room"
     };
 
     // Room descriptions array
     string roomDescriptions[NUM_ROOMS] = {
-        "A grand entrance hall with a dusty chandelier hanging above.",
-        "Walls lined with ancient books. The air smells of old paper.",
-        "A spacious kitchen with an old stove and wooden counter.",
-        "An overgrown garden with stone pathways and a small fountain.",
-        "A dark, damp basement with cobwebs in the corners."
+        "A room full of cubicles for workers to focus on their work. Feels like time goes by slowly here.",
+        "A room for meetings to occur regarding information in the company. Always end up mysteriously sleepy here.",
+        "A room with couches, two vending machines, a fridge, and a coffee maker. The best room here.",
+        "A room with toliet stalls and three sinks. You heard one of your coworkers empty their guts here.",
+        "A room full of servers and electronics owned by the company. This stuff is like black magic to you."
     };
 
     // Adjacency list using a 2D array
@@ -66,38 +66,38 @@ int main () {
     }
 
     // Define the connections between rooms using the Room enum
-    //Entrance Hall connections
-    connections[ENTRANCE_HALL][NORTH] = LIBRARY; // Entrance Hall -> North -> Library
-    connections[ENTRANCE_HALL][EAST] = KITCHEN; // Entrance Hall -> East -> Kitchen
-    connections[ENTRANCE_HALL][SOUTH] = -1; // No connection south
-    connections[ENTRANCE_HALL][WEST] = GARDEN; // Entrance Hall -> West -> Garden
+    // Cubicle connections
+    connections[CUBICLES][NORTH] = CONFERENCE_ROOM; // Cubicles -> North -> Library
+    connections[CUBICLES][EAST] = BREAK_ROOM; // Cubicles -> East -> Break Room
+    connections[CUBICLES][SOUTH] = -1; // No connection south
+    connections[CUBICLES][WEST] = RESTROOM; // Cubicles -> West -> Restroom
 
-    // Library connections
-    connections[LIBRARY][NORTH] = -1; // No connection north
-    connections[LIBRARY][EAST] = -1; // No connection east
-    connections[LIBRARY][SOUTH] = ENTRANCE_HALL; // Library -> South -> Entrance Hall
-    connections[LIBRARY][WEST] = -1; // No connection west
+    // Conference Room connections
+    connections[CONFERENCE_ROOM][NORTH] = -1; // No connection north
+    connections[CONFERENCE_ROOM][EAST] = -1; // No connection east
+    connections[CONFERENCE_ROOM][SOUTH] = CUBICLES; // Conference Room -> South -> Cubicles
+    connections[CONFERENCE_ROOM][WEST] = -1; // No connection west
 
-    // Kitchen connections
-    connections[KITCHEN][NORTH] = -1; // No connection north
-    connections[KITCHEN][EAST] = -1; // No connection east
-    connections[KITCHEN][SOUTH] = BASEMENT; // Kitchen -> South -> Basement 
-    connections[KITCHEN][WEST] = ENTRANCE_HALL; // Kitchen -> West -> Entrance Hall
+    // Break Room connections
+    connections[BREAK_ROOM][NORTH] = -1; // No connection north
+    connections[BREAK_ROOM][EAST] = -1; // No connection east
+    connections[BREAK_ROOM][SOUTH] = IT_ROOM; // Break Room -> South -> IT Room
+    connections[BREAK_ROOM][WEST] = CUBICLES; // Break Room -> West -> Cubicles
 
-    // Garden connections
-    connections[GARDEN][NORTH] = -1; // No connection north
-    connections[GARDEN][EAST] = ENTRANCE_HALL; // Garden -> East -> Entrance Hall
-    connections[GARDEN][SOUTH] = -1; // No connection south
-    connections[GARDEN][WEST] = -1; // No connection west
+    // Restroom connections
+    connections[RESTROOM][NORTH] = -1; // No connection north
+    connections[RESTROOM][EAST] = CUBICLES; // Restroom -> East -> Cubicles
+    connections[RESTROOM][SOUTH] = -1; // No connection south
+    connections[RESTROOM][WEST] = -1; // No connection west
 
-    // Basement connections
-    connections[BASEMENT][NORTH] = KITCHEN; // Basement -> North -> Kitchen
-    connections[BASEMENT][EAST] = -1; // No connection east
-    connections[BASEMENT][SOUTH] = -1; // No connection south
-    connections[BASEMENT][WEST] = -1; // No connection west
+    // IT Room connections
+    connections[IT_ROOM][NORTH] = BREAK_ROOM; // IT Room -> North -> Break Room
+    connections[IT_ROOM][EAST] = -1; // No connection east
+    connections[IT_ROOM][SOUTH] = -1; // No connection south
+    connections[IT_ROOM][WEST] = RESTROOM; // IT Room -> West -> Restroom
 
     // Game state
-    int currentRoom = ENTRANCE_HALL; // Start in the Entrance Hall
+    int currentRoom = CUBICLES; // Start in the cubicles
     bool gameRunning = true;
 
     // Game loop
@@ -160,3 +160,9 @@ int main () {
     cout << "Thanks for playing!" << endl;
     return 0;
 }
+
+/*
+========= AI PROMPT: GPT-4o Mini =========
+Prompt: Give me rooms that would be in an office setting
+*Note: The cubicles idea was mine, but I took conference room, break room, restroom, and IT room.*
+*/
