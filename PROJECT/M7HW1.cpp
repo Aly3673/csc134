@@ -44,27 +44,27 @@ cout << "1. Start game\n2. Quit" << endl;
 cout << "Please type in an option: ";
 int playerChoice;
 
-while (playerChoice != 1, 2) {
-    cin >> playerChoice;
+    while (playerChoice != 1, 2) {
+        cin >> playerChoice;
 
-    switch (playerChoice) {
-        case 1: {
-            roomOne();
-            break;
-        }
-        
-        case 2: {
-            cout << "Thanks for playing!" << endl;
-            exit(0);
-            break;
-        }
+        switch (playerChoice) {
+            case 1: {
+                roomOne();
+                break;
+            }
+            
+            case 2: {
+                cout << "Thanks for playing!" << endl;
+                exit(0);
+                break;
+            }
 
-        default: {
-            cout << "Invalid option. Please try again: ";
-            break;
+            default: {
+                cout << "Invalid option. Please try again: ";
+                break;
+            }
         }
     }
-}
 }
 
 void roomOne() {
