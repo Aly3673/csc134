@@ -1,6 +1,6 @@
 /*
 Note:
-Using this space to build the puzzles for all escape rooms.
+Using this space to build and test the puzzles for escape room puzzle one.
 */
 
 #include <iostream>
@@ -9,8 +9,8 @@ Using this space to build the puzzles for all escape rooms.
 using namespace std;
 
 int main() {
-
-    // Puzzle 1: Easy
+// Puzzle 1: Easy
+    cout << "Puzzle 1" << endl;
     srand(static_cast<unsigned>(time(0)));
     int numberToGuess = rand() % 150 + 1; // Changed from 100 to 150.
     int userGuess;
@@ -24,7 +24,7 @@ int main() {
         leftoverAttempts = maxAttempts - attempt; // My line I added in.
         if (userGuess == numberToGuess) {
             cout << "Congrats! You win!" << endl;
-            exit(0);
+            break;
         } else if (userGuess < numberToGuess) {
             cout << "Too low! Try again: ";
             cout << "You have " << leftoverAttempts << " guesses left!" << endl; // My line I added in.
@@ -34,6 +34,4 @@ int main() {
         }
     }
     cout << "Sorry! The number was " << numberToGuess << "." << endl;
-
-    // Puzzle 2: Medium
 }

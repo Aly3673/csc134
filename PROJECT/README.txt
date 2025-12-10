@@ -1,4 +1,4 @@
-Updated Rubric:
+Rubric:
 
 20% - Project shows skills the student has learned this semester (whether in C++, prompting, or in a separate game engine or library)
 
@@ -26,3 +26,10 @@ Bot 2: Puzzle Bot
 Prompt 1: "How do I code a logic grid puzzle for an escape room in C++"
 Prompt 2: "I got this error: "redefinition of ‘void LogicGrid::applyClue(const std::string&)’" What do I do?"
 Prompt 3: "What are some pretty simple puzzles (with examples) I can put for my escape room that's all C++"
+Prompt 4: "Now, give me 5 more puzzles, but bump up the difficulty"
+Prompt 5: "I need 2 more examples"
+Prompt 6: "Now, give me another 5 puzzles, but bump up the difficulty even more"
+Prompt 7: "How can I build a small minesweeper puzzle in C++?"
+Prompt 8: "Can I have a puzzle that tells a random riddle each time?"
+
+

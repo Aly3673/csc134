@@ -9,13 +9,14 @@ Final Project - Break Out
 #include <chrono>
 #include <thread>
 #include <string>
+#include <limits>
 using namespace std;
 
 // Main menu, all escape rooms, and the congrats menu.
 void mainMenu();
-void roomOne();
-void roomTwo();
-void roomThree();
+void puzzleOne();
+void puzzleTwo();
+void puzzleThree();
 void congratsMenu();
 
 const int TIME_LIMIT = 300;
@@ -44,23 +45,24 @@ void startTimer() {
     }
 }
 
-int main() {
 // Laying out the setup of the game.
+int main() {
 
-// The main menu.
 mainMenu();
 
-roomOne();
+puzzleOne();
 cout << endl;
-roomTwo();
+puzzleTwo();
 cout << endl;
-roomThree();
+puzzleThree();
 cout << endl;
 
 congratsMenu();
 return 0;
+
 }
 
+// Main menu of the escape room.
 void mainMenu() {
 cout << "╔════════════════════════════════════════╗" << endl;
 cout << "║              ESCAPE ROOM!              ║" << endl;
@@ -76,7 +78,7 @@ int playerChoice;
 
         switch (playerChoice) {
             case 1: {
-                roomOne();
+                puzzleOne();
                 break;
             }
             
@@ -87,42 +89,83 @@ int playerChoice;
             }
 
             default: {
-                cout << "Invalid option. Please try again: ";
-                break;
+                if (cin.fail()) {
+                    cout << "Invalid option. Please try again: ";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    break;
+                }
+                
             }
         }
     }
 }
 
-void roomOne() {
+// The first puzzle of the game.
+void puzzleOne() {
 cout << endl;
 timerRunning = true;
 timerThread = thread(startTimer);
 
-cout << "Room 1" << endl;
-cout << "Test puzzle" << endl;
-int playerChoice1;
-cin >> playerChoice1;
+cout << "═════════ Puzzle One: Guess The Number ═════════" << endl;
+srand(static_cast<unsigned>(time(0)));
+int guessNumber = rand() % 150 + 1; // Guessing a number from 1 to 150.
+int userGuess;
+const int maxAttempts = 10; // Max attempts to guess.
 
-    if (playerChoice1 == 1) {
-        roomTwo();
-    } else {
-        cout << "Invalid input. Please try again: " << endl;
-        roomOne();
+cout << "Guess the number (1 - 150): ";
+
+for (int attempt = 1; attempt <= maxAttempts; ++attempt) {
+        cin >> userGuess;
+        int leftoverAttempts;
+        leftoverAttempts = maxAttempts - attempt;
+
+        if (userGuess == guessNumber) {
+            cout << "Congrats! You passed the first puzzle!" << endl;
+            cout << endl;
+            puzzleTwo();
+        }
+        else if (userGuess < guessNumber && leftoverAttempts != 0) {
+            cout << "That's too low! Try again.\nYou have " << leftoverAttempts << " guess(es) left: ";
+        }
+        else if (userGuess > guessNumber && leftoverAttempts != 0) {
+            cout << "That's too high! Try again.\nYou have " << leftoverAttempts << " guess(es) left: ";
+        }
+    }
+    cout << endl;
+    cout << "Game Over! The number was " << guessNumber << ", thanks for playing!" << endl;
+    timerRunning = false;
+    timerThread.join();
+    exit(0);
+}
+
+void puzzleTwo() {
+cout << "Room 2" << endl;
+int userInput;
+cin >> userInput;
+if (userInput == 1) {
+        puzzleThree();
     }
 }
 
-void roomTwo() {
-cout << "Room 2" << endl;
-roomThree();
-}
-
-void roomThree() {
+void puzzleThree() {
 cout << "Room 3" << endl;
+int userInput;
+cin >> userInput;
+if (userInput == 1) {
+        congratsMenu();
+    }
 }
 
 void congratsMenu() {
-cout << "Congrats!" << endl;
 timerRunning = false;
 timerThread.join();
+
+cout << "╔════════════════════════════════════════╗" << endl;
+cout << "║         🎉 CONGRATULATIONS! 🎉         ║" << endl;
+cout << "║              You escaped!              ║" << endl;
+cout << "║         Thank you for playing!         ║" << endl;
+cout << "╚════════════════════════════════════════╝" << endl;
+
+exit(0);
 }
