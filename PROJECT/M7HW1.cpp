@@ -26,7 +26,7 @@ void puzzleThree();
 void congratsMenu();
 
 // Setting up the timer.
-const int TIME_LIMIT = 300;
+const int TIME_LIMIT = 180;
 const int MESSAGE_INTERVAL = 60;
 bool timerRunning = false;
 thread timerThread;
@@ -84,7 +84,7 @@ MorseCodeGame::MorseCodeGame() {
         {'8', "---.."}, {'9', "----."}
     };
 
-    words = {"CHICKEN"};
+    words = {"CRACK THE CODE", "YOU HAVE TO ESCAPE", "THE CODE IS THIS", "I LOVE CATS", "THE DOG IS HERE", "THE CAKE IS A LIE"};
     srand(static_cast<unsigned>(time(0)));
 }
 
@@ -125,7 +125,7 @@ void MorseCodeGame::play() {
         puzzleThree();
     }
     else {
-        cout << "Incorrect! The original word was: " << originalWord << ".\nGame over, thanks for playing!" << endl;
+        cout << "Incorrect! The original message was: " << originalWord << ".\nGame over, thanks for playing!" << endl;
         timerRunning = false;
         timerThread.join();
         exit(0);
@@ -278,6 +278,7 @@ void puzzleThree() {
 }
 
 void congratsMenu() {
+cin.ignore(numeric_limits<streamsize>::max(), '\n');
 timerRunning = false;
 timerThread.join();
 
