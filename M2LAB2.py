@@ -5,6 +5,11 @@ Alyssa Y.
 Buckshot Roulette.
 """
 
+"""
+Note: All this code was written in the Python Sandbox at pythonsandbox.com/turtle and copy & pasted here.
+"""
+
+
 import turtle
 win = turtle.Screen()
 t = turtle.Turtle()
@@ -83,3 +88,85 @@ t.penup()
 t.goto(150, -150)
 t.pencolor("blue")
 t.pendown()
+sides = 5
+for penta in range (sides):
+  t.forward(50)
+  t.right(360/sides)
+
+# Fifth - Initials
+t.penup()
+t.goto(-100, -5)
+t.pencolor("purple")
+t.pendown()
+
+# Fifth - Initials (Pt. 1)
+t.setheading(90)
+t.forward(50)
+t.setheading(0)
+t.forward(40)
+t.setheading(270)
+t.forward(50)
+t.setheading(90)
+t.forward(35)
+t.setheading(180)
+t.forward(40)
+
+#Fifth - Initials (Pt. 2)
+t.penup()
+t.goto(-50, -5)
+t.pendown()
+t.forward(1)
+
+#Fifth - Initials (Pt. 3)
+t.penup()
+t.goto(-25, -5)
+t.pendown()
+t.setheading(90)
+t.forward(35)
+t.setheading(135)
+t.forward(20)
+t.setheading(315)
+t.forward(20)
+t.setheading(45)
+t.forward(20)
+
+#Fifth - Initials (Pt. 4)
+t.penup()
+t.goto(-0, -5)
+t.pendown()
+t.setheading(180)
+t.forward(1)
+
+#Fifth - Initials (Pt. 5)
+t.penup()
+t.goto(15, -5)
+t.pendown()
+t.setheading(90)
+t.forward(1)
+t.penup()
+t.goto(15, 5)
+t.pendown()
+t.forward(40)
+
+t.penup()
+t.goto(25, -5)
+t.pendown()
+t.setheading(90)
+t.forward(1)
+t.penup()
+t.goto(25, 5)
+t.pendown()
+t.forward(40)
+
+t.penup()
+t.goto(35, -5)
+t.pendown()
+t.setheading(90)
+t.forward(1)
+t.penup()
+t.goto(35, 5)
+t.pendown()
+t.forward(40)
+
+t.penup()
+t.goto(0, -50)
