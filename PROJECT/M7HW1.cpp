@@ -41,8 +41,8 @@ void startTimer() {
             cout << endl;
             cout << "\nTime's up! Game Over!" << endl; // Send game over.
             timerRunning = false;
-            timerThread.join();
-            exit(0); // Exit the game.
+            timerThread.detach(); // A clean exit.
+            exit(0);
         }
 
         if (static_cast<int>(elapsed.count()) % MESSAGE_INTERVAL == 0 && static_cast<int>(elapsed.count()) != 0) { // Setting up time message.
@@ -147,16 +147,7 @@ string scrambleWord(const string &word) {
 int main() {
 
     mainMenu();
-
-    puzzleOne();
-    cout << endl;
-    puzzleTwo();
-    cout << endl;
-    puzzleThree();
-    cout << endl;
-
-    congratsMenu();
-    return 0;
+    return(0);
 
 }
 
