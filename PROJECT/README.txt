@@ -31,5 +31,7 @@ Prompt 5: "I need 2 more examples"
 Prompt 6: "Now, give me another 5 puzzles, but bump up the difficulty even more"
 Prompt 7: "How can I build a small minesweeper puzzle in C++?"
 Prompt 8: "Can I have a puzzle that tells a random riddle each time?"
+Prompt 9: "Can you give me other puzzle ideas that are medium difficulty?"
+Prompt 10: "How do I make a codebreaker morse code escape room, but make the words random?"
 
 
