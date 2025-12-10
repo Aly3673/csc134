@@ -15,6 +15,7 @@ Final Project - Break Out
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <random>
 using namespace std;
 
 // Main menu, all escape rooms, and the congrats menu.
@@ -111,7 +112,7 @@ void MorseCodeGame::play() {
     string morseWord = toMorse(originalWord);
 
     cout << "Morse Code: " << morseWord << endl;
-    cout << "Decipher the Morse code message: ";
+    cout << "Decipher the Morse code message (all upper-case): ";
 
     string userInput;
 
@@ -119,17 +120,27 @@ void MorseCodeGame::play() {
     getline(cin, userInput); // Gets all words with spaces.
 
     if (checkAnswer(userInput, originalWord)) {
-        cout << "Congrats, you guessed the right word! You passed the second puzzle!" << endl;
+        cout << "You guessed the right word! You passed the second puzzle!" << endl;
         cout << endl;
         puzzleThree();
     }
     else {
-        cout << "Incorrect! The original word was: " << originalWord << endl;
-        cout << "Game Over! Thanks for playing!" << endl;
+        cout << "Incorrect! The original word was: " << originalWord << ".\nGame over, thanks for playing!" << endl;
         timerRunning = false;
         timerThread.join();
         exit(0);
     }
+}
+
+// Setting up for scramble.
+string scrambleWord(const string &word) {
+    string scrambled = word;
+
+    random_device rd;
+    mt19937 g(rd());
+
+    shuffle(scrambled.begin(), scrambled.end(), g);
+    return scrambled;
 }
 
 // Laying out the setup of the game.
@@ -202,13 +213,13 @@ void puzzleOne() {
 
     cout << "Guess the number (1 - 150): ";
 
-    for (int attempt = 1; attempt <= maxAttempts; ++attempt) {
+    for (int attempt = 1; attempt <= maxAttempts; attempt++) {
             cin >> userGuess;
             int leftoverAttempts;
             leftoverAttempts = maxAttempts - attempt;
 
             if (userGuess == guessNumber) {
-                cout << "Congrats, that was the correct number! You passed the first puzzle!" << endl;
+                cout << "That was the correct number! You passed the first puzzle!" << endl;
                 cout << endl;
                 puzzleTwo();
                 return;
@@ -220,11 +231,10 @@ void puzzleOne() {
                 cout << "That's too high! Try again.\nYou have " << leftoverAttempts << " guess(es) left: ";
             }
         }
-        cout << endl;
-        cout << "Game Over! The number was " << guessNumber << ", thanks for playing!" << endl;
-        timerRunning = false;
-        timerThread.join();
-        exit(0);
+    cout << "Incorrect, The number was " << guessNumber << ".\nGame over, thanks for playing!" << endl;
+    timerRunning = false;
+    timerThread.join();
+    exit(0);
 }
 
 void puzzleTwo() {
@@ -234,10 +244,37 @@ void puzzleTwo() {
 }
 
 void puzzleThree() {
-cout << "Room 3" << endl;
-cout << "Hi!" << endl;
-cout << endl;
-congratsMenu();
+    cout << "═════════ Puzzle Three: Scramble ══════════" << endl;
+    vector<string> words = {"Chicken"};
+    srand(static_cast<unsigned int>(time(0)));
+
+    string selectedWord = words[rand() % words.size()];
+    string scrambled = scrambleWord(selectedWord);
+
+    cout << "Unscramble the word: " << scrambled << endl;
+
+    const int maxGuesses = 3;
+    
+    string guess;
+
+    for (int attemptedGuess = 1; attemptedGuess <= maxGuesses; attemptedGuess++) {
+        cin >> guess;
+        int leftoverGuesses;
+        leftoverGuesses = maxGuesses - attemptedGuess;
+
+        if (guess == selectedWord) {
+            cout << "That was the correct word! You passed the third puzzle!" << endl;
+            cout << endl;
+            congratsMenu();
+        }
+        else if (guess != selectedWord && leftoverGuesses != 0) {
+            cout << "Not the right word! Try again. You have " << leftoverGuesses << " guess(es) left: ";
+        }
+    }
+    cout << "Incorrect, the word was " << selectedWord << ".\nGame over, thanks for playing!" << endl;
+    timerRunning = false;
+    timerThread.join();
+    exit(0);
 }
 
 void congratsMenu() {
