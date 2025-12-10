@@ -48,7 +48,7 @@ Prompt 11: "The morse code puzzle in my code immediately displays the "Incorrect
 Prompt 12: "Can you point out specifically what areas in my code need to be adjusted?"
 Prompt 13: "That's the same code I have, besides it going to the next puzzle. How do I fix this?"
 
-Bot 3: Morse code & Scramble Bot (Gemini)
+Bot 3: Morse code, Scramble, & TimerThread Bot (Gemini)
 Prompt 1: "CHICKEN is the first word I'm using for a word scramble / morse code puzzle.
 
 code snippet in c++
@@ -67,5 +67,8 @@ Prompt 5: "Can you give me another list of words?"
 Prompt 6: "Can I get words that are a bit less complex now?"
 Prompt 7: "Give me short messages (3-4 words) that I can use for my morse code puzzle"
 Prompt 8: "Could you give me some more examples?"
+Prompt 9: "My code has a timer. The error popped up after I ran out of time. How can I fix this? Here is my code: *Copy and pastes timer code*"
+Prompt 10: "Can't I put "timerThread.join" in a void function and then call that function as well?"
+Prompt 11: "I got this error, how do I fix this: "terminate called without an active exception""
 
 
