@@ -19,9 +19,9 @@ void roomThree();
 void congratsMenu();
 
 const int TIME_LIMIT = 300;
-const int minuteConversion = 60;
-int timerMinutes = TIME_LIMIT / minuteConversion;
+const int MESSAGE_INTERVAL = 60;
 bool timerRunning = false;
+thread timerThread;
 
 void startTimer() {
     auto start = chrono::high_resolution_clock::now(); // Start timer.
@@ -30,13 +30,17 @@ void startTimer() {
         chrono::duration<double> elapsed = now - start; // Calculate elapsed time.
 
         if (elapsed.count() >= TIME_LIMIT) { // Check if time limit exceeded.
-            cout << "Time's up! Game Over!" << endl; // Send game over.
+            cout << "\nTime's up! Game Over!" << endl; // Send game over.
             exit(0); // Exit the game.
         }
 
-        // Displaying remaining time for urgency.
-        cout << "Time remaining: " << TIME_LIMIT - static_cast<int>(elapsed.count()) << " seconds\r";
-        this_thread::sleep_for(chrono::milliseconds(100)); // Update every 100 ms.
+        if (static_cast<int>(elapsed.count()) % MESSAGE_INTERVAL == 0 && static_cast<int>(elapsed.count()) != 0) {
+            cout << "\n*** You have " << TIME_LIMIT - static_cast<int>(elapsed.count()) << " seconds left! ***" << endl;
+            this_thread::sleep_for(chrono::seconds(60));
+        }
+        else {
+            this_thread::sleep_for(chrono::milliseconds(100)); // Update every 100 ms.
+        }
     }
 }
 
@@ -45,9 +49,7 @@ int main() {
 
 // The main menu.
 mainMenu();
-cout << endl;
 
-// All 3 escape rooms.
 roomOne();
 cout << endl;
 roomTwo();
@@ -55,16 +57,15 @@ cout << endl;
 roomThree();
 cout << endl;
 
-// Completion of the game.
 congratsMenu();
-
+return 0;
 }
 
 void mainMenu() {
 cout << "╔════════════════════════════════════════╗" << endl;
-cout << "║               BREAK OUT!               ║" << endl;
-cout << "║    Break out of three escape rooms!    ║" << endl;
-cout << "║           You have " << timerMinutes << " minutes           ║" << endl;
+cout << "║              ESCAPE ROOM!              ║" << endl;
+cout << "║   Break out by doing three puzzles!    ║" << endl;
+cout << "║          You have " << TIME_LIMIT << " seconds          ║" << endl;
 cout << "╚════════════════════════════════════════╝" << endl;
 cout << "1. Start game\n2. Quit" << endl;
 cout << "Please type in an option: ";
@@ -94,17 +95,26 @@ int playerChoice;
 }
 
 void roomOne() {
+cout << endl;
 timerRunning = true;
-thread timerThread(startTimer);
+timerThread = thread(startTimer);
 
 cout << "Room 1" << endl;
+cout << "Test puzzle" << endl;
 int playerChoice1;
 cin >> playerChoice1;
 
+    if (playerChoice1 == 1) {
+        roomTwo();
+    } else {
+        cout << "Invalid input. Please try again: " << endl;
+        roomOne();
+    }
 }
 
 void roomTwo() {
 cout << "Room 2" << endl;
+roomThree();
 }
 
 void roomThree() {
@@ -113,7 +123,6 @@ cout << "Room 3" << endl;
 
 void congratsMenu() {
 cout << "Congrats!" << endl;
-
 timerRunning = false;
 timerThread.join();
 }
