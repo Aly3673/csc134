@@ -235,11 +235,9 @@ void puzzleTwo() {
 
 void puzzleThree() {
 cout << "Room 3" << endl;
-int userInput;
-cin >> userInput;
-if (userInput == 1) {
-        congratsMenu();
-    }
+cout << "Hi!" << endl;
+cout << endl;
+congratsMenu();
 }
 
 void congratsMenu() {
