@@ -245,7 +245,7 @@ void puzzleTwo() {
 
 void puzzleThree() {
     cout << "═════════ Puzzle Three: Scramble ══════════" << endl;
-    vector<string> words = {"Chicken"};
+    vector<string> words = {"Juxtaposition", "Oxymoron", "Mythology", "Synchronize", "Diaphragm", "Vacuum", "Transfiguration", "Fluorescence", "Queueing"};
     srand(static_cast<unsigned int>(time(0)));
 
     string selectedWord = words[rand() % words.size()];
