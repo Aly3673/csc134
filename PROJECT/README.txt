@@ -33,5 +33,8 @@ Prompt 7: "How can I build a small minesweeper puzzle in C++?"
 Prompt 8: "Can I have a puzzle that tells a random riddle each time?"
 Prompt 9: "Can you give me other puzzle ideas that are medium difficulty?"
 Prompt 10: "How do I make a codebreaker morse code escape room, but make the words random?"
+Prompt 11: "The morse code puzzle in my code immediately displays the "Incorrect. The original word was: " with the answer once it starts. How do I fix this? Code: *Copy and prints code*"
+Prompt 12: "Can you point out specifically what areas in my code need to be adjusted?"
+Prompt 13: "That's the same code I have, besides it going to the next puzzle. How do I fix this?"
 
 

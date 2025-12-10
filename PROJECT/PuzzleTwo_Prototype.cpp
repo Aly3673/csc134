@@ -58,9 +58,9 @@ void RiddleGame::play() {
 
 // Option 2: Morse Code
 
-#include <iostream>
-#include <string>
-#include <map>
+#include <iostream> //
+#include <string> //
+#include <map>  
 #include <vector>
 #include <cstdlib>
 #include <ctime>
